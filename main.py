@@ -113,16 +113,16 @@ if __name__ == '__main__':
 
     #results = api.get_v2_threads()
 
-    madhavi_thread = 340282366841710300949128129868416369021
-    results = api._call_api('direct_v2/threads/{0}'.format(madhavi_thread))
+    margesha_thread = 340282366841710300949128170938113262944
+    #results = api._call_api('direct_v2/threads/{0}'.format(margesha_thread))
     
-    with open("tan_chat.txt", "w") as f:
-        f.write(json.dumps(results, indent = 4))
+    #with open("marg__full_personal_chat.txt", "w") as f:
+    #    f.write(json.dumps(results, indent = 4))
 
     #----------------
-    personal_thread = results["thread"]
-    other_person_name = personal_thread["users"][0]["username"]
-    other_person_id = personal_thread["users"][0]["pk"]
+    #personal_thread = results["thread"]
+    #other_person_name = personal_thread["users"][0]["username"]
+    #other_person_id = personal_thread["users"][0]["pk"]
 
     # for message in personal_thread["items"]:
     #     if message["user_id"] == other_person_id:
@@ -157,17 +157,21 @@ if __name__ == '__main__':
 
     endpoint = 'direct_v2/threads/broadcast/text/'
     params = {
-            'client_context': api.phone_id,
-            'action': 'send_item'
-        }
+             'text': "yoyo",
+             'client_context': api.phone_id,
+             'recipient_users ': ' [ [1324264181] ]',
+             'action': 'send_item'
+         }
     params.update(api.authenticated_params)
     print(params)
-    #res = api._call_api(endpoint, params=params)
+
+
+    res = api._call_api(endpoint, params=params)
 
 
     #if api.auto_patch:
     #    ClientCompatPatch.comment(res['comment'], drop_incompat_keys=api.drop_incompat_keys)
-    #print(res)
+    print(res)
 
 
     # for user in message_threads:
